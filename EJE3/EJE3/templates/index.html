@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Moda Perú</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Moda Perú</h1>
+    <p>Tienda Inteligente con Chatbot</p>
+</header>
+
+<section class="catalogo">
+
+    <h2>Catálogo de Productos</h2>
+
+    <div class="productos">
+
+        {% for p in productos %}
+        <div class="card">
+
+            <h3>{{ p.nombre }}</h3>
+
+            <p><b>Categoría:</b> {{ p.categoria }}</p>
+            <p><b>Precio:</b> S/{{ p.precio }}</p>
+            <p><b>Color:</b> {{ p.color }}</p>
+            <p><b>Tallas:</b> {{ ", ".join(p.tallas) }}</p>
+            <p><b>Oferta:</b> {{ p.oferta }}</p>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<section class="chatbot">
+
+    <h2>Chatbot</h2>
+
+    <div id="chat-box"></div>
+
+    <div class="entrada">
+        <input type="text" id="mensaje" placeholder="¿Cuánto cuesta la casaca?">
+        <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+
+</section>
+
+<script>
+
+function agregarMensaje(texto, clase){
+
+    const chatBox = document.getElementById("chat-box");
+
+    const div = document.createElement("div");
+
+    div.className = clase;
+
+    div.textContent = texto;
+
+    chatBox.appendChild(div);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function enviarMensaje(){
+
+    let mensaje = document.getElementById("mensaje").value;
+
+    if(mensaje.trim() === "") return;
+
+    agregarMensaje("Cliente: " + mensaje,"cliente");
+
+    fetch("/chat",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            mensaje:mensaje
+        })
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        agregarMensaje("Bot: " + data.respuesta,"bot");
+    });
+
+    document.getElementById("mensaje").value="";
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:white;
+    text-align:center;
+    padding:40px;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+header h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+}
+
+/* TITULOS */
+
+h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#1f2937;
+}
+
+/* CATALOGO */
+
+.catalogo{
+    width:95%;
+    margin:40px auto;
+}
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* TARJETAS */
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    transition:.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    border-top:5px solid #2563eb;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.card p{
+    margin-bottom:8px;
+    color:#374151;
+}
+
+/* CHATBOT */
+
+.chatbot{
+    width:95%;
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+#chat-box{
+    height:350px;
+    overflow-y:auto;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    padding:15px;
+    background:#f9fafb;
+}
+
+/* MENSAJES */
+
+.cliente{
+    background:#dbeafe;
+    padding:12px;
+    border-radius:12px;
+    margin:10px;
+    width:fit-content;
+    max-width:80%;
+    margin-left:auto;
+}
+
+.bot{
+    background:#dcfce7;
+    padding:12px;
+    border-radius:12px;
+    margin:10px;
+    width:fit-content;
+    max-width:80%;
+}
+
+/* ENTRADA */
+
+.entrada{
+    display:flex;
+    margin-top:15px;
+    gap:10px;
+}
+
+input{
+    flex:1;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border:2px solid #2563eb;
+}
+
+/* BOTON */
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:14px 25px;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1e40af;
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111827;
+    color:white;
+    margin-top:40px;
+}
